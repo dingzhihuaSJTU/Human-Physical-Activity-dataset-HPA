@@ -10,8 +10,8 @@ This dataset comprises high-resolution step count data collected from the **SJTU
 
 Since 2017, the platform has accumulated data from **4,594 users**. The dataset focuses on daily physical activity tracking and has been strictly anonymized to protect user privacy. All data collection was conducted with explicit user consent.
 
-> **Principal Investigator:** [Prof. Weiqiang Sun (Homepage Link Here)](https://www.google.com)  
-> *Please replace the link above with the actual homepage URL.*
+> **Principal Investigator:** [Prof. Weiqiang Sun](https://icisee.sjtu.edu.cn/jiaoshiml/sunweiqiang.html)  
+> [Google Scholar](https://scholar.google.com/citations?hl=zh-CN&user=2ezpfqcAAAAJ)
 
 ### 📱 Data Source Interface
 *(Placeholder for the Mini-program Screenshot. Please upload your image to the repo and reference it below)*

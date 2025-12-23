@@ -6,7 +6,7 @@ A time series dataset containing daily step counts from Shanghai Jiao Tong Unive
 
 ## 📖 Overview
 
-This dataset comprises high-resolution step count data collected from the **SJTU Health Mini-program** (交大健康小程序), developed by **Prof. Weiqiang Sun** and his team at Shanghai Jiao Tong University.
+This dataset comprises high-resolution step count data collected from the **SJTU Health Mini-program** (健康交大人小程序), developed by **Prof. Weiqiang Sun** and his team at Shanghai Jiao Tong University.
 
 Since 2017, the platform has accumulated data from **4,594 users**. The dataset focuses on daily physical activity tracking and has been strictly anonymized to protect user privacy. All data collection was conducted with explicit user consent.
 
@@ -14,7 +14,6 @@ Since 2017, the platform has accumulated data from **4,594 users**. The dataset 
 > [Google Scholar](https://scholar.google.com/citations?hl=zh-CN&user=2ezpfqcAAAAJ)
 
 ### 📱 Data Source Interface
-*(Placeholder for the Mini-program Screenshot. Please upload your image to the repo and reference it below)*
 ![SJTU Health Mini-program Interface](assets/miniprogram_screenshot.jpg)
 
 ---
@@ -43,7 +42,7 @@ The data files typically follow this column structure:
 
 | Column Index | Column Name | Description |
 | :--- | :--- | :--- |
-| **Col 1** | `Date` | Timestamp of the record (YYYY-MM-DD HH:MM:SS). |
+| **Col 1** | `Date` | Timestamp of the record (YYYY-MM-DD). |
 | **Col 2** | `Device_Type` | Source device (Android, iOS, Huawei, etc.). |
 | **Col 3+** | `Step_Counts` | Step count data points corresponding to specific timestamps. |
 
@@ -71,13 +70,11 @@ Below is the distribution of user engagement within the dataset.
 
 ### 1. Continuous Usage Duration
 Distribution of users based on their longest continuous streak of usage.
-*(Place your generated chart here, e.g., `assets/stat_continuous_days.png`)*
 
 ![Continuous Usage Distribution](assets/stat_continuous_days.png)
 
 ### 2. Total Usage Duration
 Distribution of users based on the total number of days they have used the app (cumulative, non-continuous).
-*(Place your generated chart here, e.g., `assets/stat_total_days.png`)*
 
 ![Total Usage Distribution](assets/stat_total_days.png)
 

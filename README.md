@@ -1,14 +1,37 @@
 # Human-Physical-Activity-HPA-dataset
 
-A time series dataset containing daily step counts from Shanghai Jiao Tong University (SJTU)
+A time series dataset containing daily step counts collected by the **SJTU Health** Team. 
 
 [![License: CC BY-NC 4.0](https://img.shields.io/badge/License-CC%20BY--NC%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc/4.0/)
 
-## 📖 Overview
+## 📖 Dataset Overview
 
-This dataset comprises high-resolution step count data collected from the **SJTU Health Mini-program** (健康交大人小程序), developed by **Prof. Weiqiang Sun** and his team at Shanghai Jiao Tong University.
+This repository hosts anonymized step count data collected from members of the Shanghai Jiao Tong University (SJTU) community. The dataset is intended for academic research in time series forecasting, human behavior analysis, and health data mining.
 
-Since 2017, the platform has accumulated data from **4,594 users**. The dataset focuses on daily physical activity tracking and has been strictly anonymized to protect user privacy. All data collection was conducted with explicit user consent.
+### 📂 Data Structure
+
+The dataset contains anonymized daily step records from **2017 to 2023**, covering approximately **4,594 users**.
+
+### File Organization
+The data is organized by year. For research requiring high continuity, a subset of high-quality data is provided in the `ContinuousData/` folder.
+
+### Columns Description
+The data files typically follow this structure:
+
+| Column | Description |
+| :--- | :--- |
+| `Date` | The date of the record (YYYY-MM-DD). |
+| `Type` | Source device type (e.g., Android, iOS, Huawei). |
+| `Steps` | The recorded step count. |
+
+---
+
+## 🏃 About SJTU Health
+
+The data originates from the **SJTU Health** initiative, a long-term community health program at Shanghai Jiao Tong University.
+
+### History & Community
+SJTU Health was started in **May 2015** by a group of enthusiasts, with the leadership and support from the SJTU Faculty and Staff Union. Over the years, more than **1,100 online/offline sports activities** were organized, with over **50,000 participations**. Thousands have benefited from this community effort, by sustained outdoor physical activities, in a self-disciplined way, or with the help of other community members.
 
 > **Principal Investigator:** [Prof. Weiqiang Sun](https://icisee.sjtu.edu.cn/jiaoshiml/sunweiqiang.html)  
 > [Google Scholar](https://scholar.google.com/citations?hl=zh-CN&user=2ezpfqcAAAAJ)
@@ -16,67 +39,11 @@ Since 2017, the platform has accumulated data from **4,594 users**. The dataset 
 ### 📱 Data Source Interface
 ![SJTU Health Mini-program Interface](assets/miniprogram_screenshot.jpg)
 
----
-
-## 📂 Dataset Structure 
-
-The dataset involves two primary categories of data organization:
-
-### 1. Yearly Aggregated Data (Raw/Sparse)
-Found in the year-specific folders (e.g., `2017/`, `2018/`, ..., `2023/`).
-* **Time Span:** 2017 to 2023 (Latest data is currently being processed).
-* **Characteristics:** These files contain raw data from all users. The data is **sparse** and may contain missing values (NaN) due to user inactivity or device switching.
-
-### 2. High-Quality Continuous Data
-Found in the `ContinuousData/` directory.
-* **Population:** 189 selected users.
-* **Criteria:** Users with continuous usage for **>120 days**.
-* **Granularity:** 15-minute intervals.
-* **Quality:** No loss, high continuity. Ideal for time-series forecasting and pattern recognition research.
-
----
-
-## 📝 Data Format & Device Logic
-
-The data files typically follow this column structure:
-
-| Column Index | Column Name | Description |
-| :--- | :--- | :--- |
-| **Col 1** | `Date` | Timestamp of the record (YYYY-MM-DD). |
-| **Col 2** | `Type` | Source device (Android, iOS, Huawei, etc.). |
-| **Col 3+** | `Step_Counts` | Step count data points corresponding to specific timestamps. |
-
-### ⚠️ Critical Note on Device Sampling Logic
-Different mobile operating systems handle step counting differently. **You must apply specific preprocessing based on the `Type` column:**
-
-1.  **🤖 Android Devices:**
-    * **Behavior:** Sampling is irregular.
-    * **Handling:** Missing data indicates actual missing records (e.g., background process kill or sensor failure). Treat as `NaN` or missing.
-
-2.  **🍎 iOS Devices:**
-    * **Behavior:** iOS only logs a data point when there is a *change* in step count.
-    * **Handling:** A missing timestamp implies no movement occurred since the last record.
-    * **Solution:** Use **Forward Fill (Padding)** to complete the sequence.
-
-3.  **🔴 Huawei Devices (HarmonyOS):**
-    * **Behavior:** Data is naturally complete and regular.
-    * **Handling:** No special interpolation is usually required.
-
----
-
-## 📊 Basic Statistics
-
-Below is the distribution of user engagement within the dataset.
-
-### 1. Continuous Usage Duration
-Distribution of users based on their longest continuous streak of usage.
-
-![Continuous Usage Distribution](assets/stat_continuous_days.png)
-
-### 2. Total Usage Duration
-Distribution of users based on the total number of days they have used the app (cumulative, non-continuous).
-
-![Total Usage Distribution](assets/stat_total_days.png)
+### Operation Model
+The initiative operates through a self-owned online platform named **SJTU-Health**.
+* **Data Collection:** Step count data is collected via smart phones or wearable devices (e.g., Garmin, Huawei sport watches) and synced to the platform on a regular basis.
+* **Activity Organization:** Regular online activities, each with daily or accumulative step count goals, are organized on a weekly or monthly basis.
+* **Team Dynamics:** Participants join small groups where team leaders facilitate communication. A consensus has been reached that every team member should fulfill their own daily goal and help others do the same.
 
 ---
 
@@ -88,7 +55,7 @@ This dataset is released under the **Creative Commons Attribution-NonCommercial 
 This dataset is strictly for academic and non-commercial research.
 
 ### Mandatory Citation
-If you use this dataset in your research, **you are required to cite the following papers**:
+If you use this dataset in your research, please **cite at least one of the following papers and this repository**:
 
 ```bibtex
 @article{shi2025amulti,
@@ -116,11 +83,43 @@ If you use this dataset in your research, **you are required to cite the followi
   publisher={IEEE}
 }
 
-@inproceedings{chen2023walking,
-  title={Walking to authenticate: Identifying robust behavioral biometrics from step count data},
-  author={Chen, Zhen and Shi, Keqin and Sun, Weiqiang},
-  booktitle={2023 International Conference on Cyber-Enabled Distributed Computing and Knowledge Discovery (CyberC)},
-  pages={393--396},
-  year={2023},
-  organization={IEEE}
+@article{yujia2025understanding,
+  author={Yu, Jia and Ding, Mengjun and Sun, Weiqiang and Hu, Weisheng and Wang, Huiru},
+  journal={IEEE Transactions on Computational Social Systems}, 
+  title={Understanding the Human Behavior of Participation in Community Sports Organizations}, 
+  year={2025},
+  volume={12},
+  number={5},
+  pages={2999-3010},
+  doi={10.1109/TCSS.2025.3532924}
 }
+
+@article{ding2024growing,
+   author = {Ding, Mengjun and Yu, Jia and Sun, Weiqiang},
+   year = {2024},
+   month = {10},
+   pages = {},
+   title = {Growing simplicial complex with face dimension selection and preferential attachment},
+   volume = {34},
+   journal = {Chaos: An Interdisciplinary Journal of Nonlinear Science},
+   doi = {10.1063/5.0210960}
+}
+
+@article{shi2023inferring,
+   author = {Shi, Keqin and Chen, Zhen and Li, Xuejing and Xiao, Zhifei and Sun, Weiqiang and Hu, Weisheng},
+   title = {Inferring Activity Patterns from Sparse Step Counts Data with Recurrent Neural Networks},
+   year = {2023},
+   issue_date = {January 2023},
+   publisher = {Association for Computing Machinery},
+   address = {New York, NY, USA},
+   volume = {4},
+   number = {1},
+   url = {https://doi.org/10.1145/3560468},
+   doi = {10.1145/3560468},
+   journal = {ACM Trans. Comput. Healthcare},
+   month = feb,
+   articleno = {4},
+   numpages = {20}
+}
+
+```

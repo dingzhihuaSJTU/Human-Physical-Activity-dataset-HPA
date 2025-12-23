@@ -15,7 +15,7 @@ Since 2017, the platform has accumulated data from **4,594 users**. The dataset 
 
 ### 📱 Data Source Interface
 *(Placeholder for the Mini-program Screenshot. Please upload your image to the repo and reference it below)*
-![SJTU Health Mini-program Interface](assets/miniprogram_screenshot.png)
+![SJTU Health Mini-program Interface](assets/miniprogram_screenshot.jpg)
 
 ---
 

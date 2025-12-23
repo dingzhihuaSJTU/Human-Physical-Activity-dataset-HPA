@@ -23,7 +23,7 @@ Since 2017, the platform has accumulated data from **4,594 users**. The dataset 
 The dataset involves two primary categories of data organization:
 
 ### 1. Yearly Aggregated Data (Raw/Sparse)
-Found in the root directory or year-specific folders (e.g., `2017/`, `2018/`, ..., `2023/`).
+Found in the year-specific folders (e.g., `2017/`, `2018/`, ..., `2023/`).
 * **Time Span:** 2017 to 2023 (Latest data is currently being processed).
 * **Characteristics:** These files contain raw data from all users. The data is **sparse** and may contain missing values (NaN) due to user inactivity or device switching.
 
@@ -43,15 +43,15 @@ The data files typically follow this column structure:
 | Column Index | Column Name | Description |
 | :--- | :--- | :--- |
 | **Col 1** | `Date` | Timestamp of the record (YYYY-MM-DD). |
-| **Col 2** | `Device_Type` | Source device (Android, iOS, Huawei, etc.). |
+| **Col 2** | `Type` | Source device (Android, iOS, Huawei, etc.). |
 | **Col 3+** | `Step_Counts` | Step count data points corresponding to specific timestamps. |
 
 ### ⚠️ Critical Note on Device Sampling Logic
-Different mobile operating systems handle step counting differently. **You must apply specific preprocessing based on the `Device_Type` column:**
+Different mobile operating systems handle step counting differently. **You must apply specific preprocessing based on the `Type` column:**
 
 1.  **🤖 Android Devices:**
     * **Behavior:** Sampling is irregular.
-    * **Handling:** Missing data indicates actual missing records (e.g., sensor failure or background process kill). Treat as `NaN` or missing.
+    * **Handling:** Missing data indicates actual missing records (e.g., background process kill or sensor failure). Treat as `NaN` or missing.
 
 2.  **🍎 iOS Devices:**
     * **Behavior:** iOS only logs a data point when there is a *change* in step count.

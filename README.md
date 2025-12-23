@@ -58,7 +58,7 @@ Different mobile operating systems handle step counting differently. **You must 
     * **Handling:** A missing timestamp implies no movement occurred since the last record.
     * **Solution:** Use **Forward Fill (Padding)** to complete the sequence.
 
-3.  **🔴 Huawei Devices (HarmonyOS/Android wrapper):**
+3.  **🔴 Huawei Devices (HarmonyOS):**
     * **Behavior:** Data is naturally complete and regular.
     * **Handling:** No special interpolation is usually required.
 

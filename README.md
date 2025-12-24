@@ -6,7 +6,7 @@ A time series dataset containing daily step counts collected by the **SJTU Healt
 
 ## 📖 Dataset Overview
 
-This repository hosts anonymized step count data collected from members of the Shanghai Jiao Tong University (SJTU) community. The dataset is intended for academic research in time series forecasting, human behavior analysis, and health data mining.
+This repository hosts anonymized step count data collected by the SJTU Health team. The dataset is intended for academic research in time series forecasting, human behavior analysis, and health data mining.
 
 ### 📂 Data Structure
 
@@ -21,7 +21,7 @@ The data files typically follow this structure:
 | Column | Description |
 | :--- | :--- |
 | `Date` | The date of the record (YYYY-MM-DD). |
-| `Type` | Source device type (e.g., Android, iOS, Huawei). |
+| `Type` | Source device type (e.g., Android, iOS, Wearables). |
 | `Steps` | The recorded step count. |
 
 ---
@@ -36,8 +36,6 @@ SJTU Health was started in **May 2015** by a group of enthusiasts, with the lead
 > **Principal Investigator:** [Prof. Weiqiang Sun](https://icisee.sjtu.edu.cn/jiaoshiml/sunweiqiang.html)  
 > [Google Scholar](https://scholar.google.com/citations?hl=zh-CN&user=2ezpfqcAAAAJ)
 
-### 📱 Data Source Interface
-![SJTU Health Mini-program Interface](assets/miniprogram_screenshot.jpg)
 
 ### Operation Model
 The initiative operates through a self-owned online platform named **SJTU-Health**.
